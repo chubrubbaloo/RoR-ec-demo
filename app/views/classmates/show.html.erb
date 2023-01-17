@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @classmate %>
+
+<div>
+  <%= link_to "Edit this classmate", edit_classmate_path(@classmate) %> |
+  <%= link_to "Back to classmates", classmates_path %>
+
+  <%= button_to "Destroy this classmate", @classmate, method: :delete %>
+</div>
