@@ -3,7 +3,7 @@ class ClassmatesController < ApplicationController
 
   before_action :set_classmate, only: %i[ show edit update destroy ]
 
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:show,:edit, :update, :destroy]
 
   # GET /classmates or /classmates.json
   def index
@@ -68,7 +68,7 @@ class ClassmatesController < ApplicationController
   def correct_user
     classmate = Classmate.find(params[:id])
     unless classmate.user == current_user
-      redirect_to root_path, notice: 'No access'
+      redirect_to classmates_path
     end
   end
 
