@@ -3,6 +3,8 @@ class ClassmatesController < ApplicationController
 
   before_action :set_classmate, only: %i[ show edit update destroy ]
 
+  before_action :correct_user, only: [:edit, :update, :destroy]
+
   # GET /classmates or /classmates.json
   def index
     @classmates = Classmate.all
@@ -24,6 +26,7 @@ class ClassmatesController < ApplicationController
   # POST /classmates or /classmates.json
   def create
     @classmate = Classmate.new(classmate_params)
+    @classmate.user = current_user
 
     respond_to do |format|
       if @classmate.save
@@ -56,6 +59,16 @@ class ClassmatesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to classmates_url, notice: "Classmate was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  private
+
+  private
+  def correct_user
+    classmate = Classmate.find(params[:id])
+    unless classmate.user == current_user
+      redirect_to root_path, notice: 'No access'
     end
   end
 
