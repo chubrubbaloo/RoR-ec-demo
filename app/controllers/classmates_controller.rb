@@ -1,4 +1,6 @@
 class ClassmatesController < ApplicationController
+  before_action :authenticate_user!
+
   before_action :set_classmate, only: %i[ show edit update destroy ]
 
   # GET /classmates or /classmates.json
