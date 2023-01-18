@@ -43,7 +43,7 @@ class ClassmatesController < ApplicationController
   def update
     respond_to do |format|
       if @classmate.update(classmate_params)
-        format.html { redirect_to classmate_url(@classmate) }
+        format.html { redirect_to classmates_path }
         format.json { render :show, status: :ok, location: @classmate }
       else
         format.html { render :edit, status: :unprocessable_entity }
