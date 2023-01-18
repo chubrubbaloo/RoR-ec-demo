@@ -4,10 +4,12 @@
 
 <div id="classmates">
   <% @classmates.each do |classmate| %>
+    <% if classmate.user == current_user %>
     <%= render classmate %>
     <p>
       <%= link_to "Show this classmate", classmate %>
     </p>
+      <% end %>
   <% end %>
 </div>
 
