@@ -30,7 +30,7 @@ class ClassmatesController < ApplicationController
 
     respond_to do |format|
       if @classmate.save
-        format.html { redirect_to classmate_url(@classmate), notice: "Classmate was successfully created." }
+        format.html { redirect_to classmates_path}
         format.json { render :show, status: :created, location: @classmate }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class ClassmatesController < ApplicationController
   def update
     respond_to do |format|
       if @classmate.update(classmate_params)
-        format.html { redirect_to classmate_url(@classmate), notice: "Classmate was successfully updated." }
+        format.html { redirect_to classmate_url(@classmate) }
         format.json { render :show, status: :ok, location: @classmate }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,7 +57,7 @@ class ClassmatesController < ApplicationController
     @classmate.destroy
 
     respond_to do |format|
-      format.html { redirect_to classmates_url, notice: "Classmate was successfully destroyed." }
+      format.html { redirect_to classmates_url }
       format.json { head :no_content }
     end
   end
