@@ -25,3 +25,7 @@ footer{
 body > .container {
     margin-top: 60px;
 }
+
+*{
+    overflow: hidden ;
+}
