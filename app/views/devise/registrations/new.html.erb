@@ -1,35 +1,25 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
   <div class="card">
     <div class="card-body">
-
       <div class="row mt-4 justify-content-center align-items-center">
-        <!--  <label for="inputEmail3" class="col-sm-2 col-form-label ">Email</label>-->
         <div class="col-sm-5">
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:'Email', class: 'form-control' %>
         </div>
       </div>
-
       <div class="row mb-1 justify-content-center align-items-center">
-        <!--  <label for="inputEmail3" class="col-sm-2 col-form-label ">Email</label>-->
         <div class="col-sm-5">
           <% if @minimum_password_length %>
           <% end %><br />
           <%= f.password_field :password, autocomplete: "new-password", placeholder:'Password', class: 'form-control' %>
         </div>
       </div>
-
       <div class="row mb-1 justify-content-center align-items-center">
-        <!--  <label for="inputEmail3" class="col-sm-2 col-form-label ">Email</label>-->
         <div class="col-sm-5">
           <%= f.password_field :password_confirmation, placeholder: 'Password confirmation' , autocomplete: "new-password", class: 'form-control' %>
         </div>
       </div>
-
-
-
       <div class="text-center mt-3 mb-3">
         <%= f.submit "Sign up", class: 'btn btn-success' %>
       </div>
@@ -39,29 +29,12 @@
         </div>
       <% end %>
       <hr>
-
       <div class="text-center">
         <%- if controller_name != 'sessions' %>
           <%= link_to "Log in", new_session_path(resource_name), class: 'btn btn-primary' %><br />
         <% end %>
-
       </div>
-
-
     </div>
   </div>
-
-  <div class="field">
-  </div>
-
-  <div class="field">
-
-  </div>
-
-  <div class="field">
-
-  </div>
-
-
 <% end %>
 
