@@ -4,4 +4,6 @@ class Classmate < ApplicationRecord
   # validates :email, :phone, uniqueness: true
 
   belongs_to :user
+  validates_uniqueness_of :email, :phone, scope: :user_id
+
 end
