@@ -11,27 +11,40 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :first_name, style: "display: block" %>
-    <%= form.text_field :first_name %>
-  </div>
+  <div class="card">
+    <div class="card-body">
 
-  <div>
-    <%= form.label :last_name, style: "display: block" %>
-    <%= form.text_field :last_name %>
-  </div>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
-  </div>
+      <div class="row mb-1 mt-4 h-100 justify-content-center align-items-center">
+        <div class="col-sm-5">
+          <%= form.text_field :first_name, placeholder: 'First name', class: 'form-control' %>
+        </div>
+      </div>
 
-  <div>
-    <%= form.label :phone, style: "display: block" %>
-    <%= form.text_field :phone %>
-  </div>
+      <div class="row mb-1 mt-4 h-100 justify-content-center align-items-center">
+        <div class="col-sm-5">
+          <%= form.text_field :last_name, placeholder: 'Last name', class: 'form-control' %>
+        </div>
+      </div>
 
-  <div>
-    <%= form.submit %>
+
+      <div class="row mb-1 mt-4 h-100 justify-content-center align-items-center">
+        <div class="col-sm-5">
+          <%= form.text_field :email, placeholder: 'Email', class: 'form-control' %>
+
+        </div>
+      </div>
+
+      <div class="row mb-1 mt-4 h-100 justify-content-center align-items-center">
+        <div class="col-sm-5">
+          <%= form.text_field :phone, placeholder: 'Phone', class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <%= form.submit class: 'btn btn-primary mt-3 btn-sm'  %> <br>
+        <%= link_to 'Cancel', classmates_path, class: 'btn btn-warning btn-sm mt-3' %>
+      </div>
+    </div>
   </div>
 <% end %>
