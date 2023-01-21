@@ -12,7 +12,7 @@
         <div class="col-sm-5">
           <% if @minimum_password_length %>
           <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password", placeholder:'Password', class: 'form-control' %>
+          <%= f.password_field :password, autocomplete: "new-password", placeholder:'Password (6 chars min)', class: 'form-control' %>
         </div>
       </div>
       <div class="row mb-1 justify-content-center align-items-center">
