@@ -4,8 +4,9 @@ class Classmate < ApplicationRecord
 
   validates :email, format: {with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i , message: 'only allows real emails with @'}
 
-  validates :phone, format: { with: /([6-9]|1[0-3])/,
-                                    message: "only allows numbers with a length between 6 and 13" }
+  validates :phone,   :presence => {:message => 'hello world, bad operation!'},
+            :numericality => true,
+            :length => { :minimum => 6, :maximum => 15 }
   # validates :email, :phone, uniqueness: true
 
   belongs_to :user
