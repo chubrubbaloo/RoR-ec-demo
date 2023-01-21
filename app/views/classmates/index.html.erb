@@ -1,16 +1,39 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Classmates</h1>
-
-<div id="classmates">
-  <% @classmates.each do |classmate| %>
-    <% if classmate.user == current_user %>
-    <%= render classmate %>
-    <p>
-      <%= link_to "Show this classmate", classmate %>
-    </p>
+    <h1 class="text-start mx-3 reduce-gap">Your group</h1>
+<div class="text-end mr-1">
+  <%= link_to "New classmate", new_classmate_path, class: 'btn btn-primary btn-sm mx-5' %>
+</div>
+<hr>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @classmates.each do |classmate| %>
+      <% if classmate.user == current_user %>
+        <tr>
+          <td><%= classmate.first_name %></td>
+          <td><%= classmate.last_name %></td>
+          <td><%= classmate.email %></td>
+          <td><%= classmate.phone %></td>
+          <td> <%= link_to 'View', classmate, class: 'btn btn-info btn-sm' %> </td>
+          <td> <%= link_to 'Edit', edit_classmate_path(classmate), class: 'btn btn-success btn-sm' %> </td>
+          <td> <%= button_to 'Delete', classmate, method: :delete, class: 'btn btn-danger btn-sm' %> </td>
+        </tr>
       <% end %>
-  <% end %>
+    <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New classmate", new_classmate_path %>
+
+
+

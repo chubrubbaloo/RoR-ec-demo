@@ -232,6 +232,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  email_validator (~> 2.2, >= 2.2.4)
   importmap-rails
   jbuilder
   letter_opener
