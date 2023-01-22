@@ -24,7 +24,6 @@
           <td class="text-center"><%= classmate.last_name %></td>
           <td class="text-center"><%= classmate.email %></td>
           <td class="text-center"><%= classmate.phone %></td>
-          <td class="text-center"> <%= link_to 'View', classmate, class: 'btn btn-info btn-sm' %> </td>
           <td class="text-center"> <%= link_to 'Edit', edit_classmate_path(classmate), class: 'btn btn-success btn-sm' %> </td>
           <td class="text-center"> <%= button_to 'Delete', classmate, method: :delete, class: 'btn btn-danger btn-sm' %> </td>
         </tr>
