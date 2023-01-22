@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
 
 
+  has_many :grades
   has_many :classmates
 end
 
