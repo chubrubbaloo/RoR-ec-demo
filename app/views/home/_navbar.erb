@@ -12,7 +12,11 @@
               <% if user_signed_in? %>
 
                 <li class="nav-item">
-                  <%= link_to 'School group', classmates_path, class: 'nav-link text-light text-center' %>
+                  <%= link_to 'Grades', grades_path, class: 'nav-link text-light text-center' %>
+                </li>
+
+                <li class="nav-item">
+                  <%= link_to 'Classmates', classmates_path, class: 'nav-link text-light text-center' %>
                 </li>
               <li class="nav-item">
                 <%= link_to current_user.email, edit_user_registration_path, class: 'nav-link text-light text-center' %>

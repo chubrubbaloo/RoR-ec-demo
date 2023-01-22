@@ -1,16 +1,38 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Grades</h1>
-
-<div id="grades">
-  <% @grades.each do |grade| %>
-    <% if grade.user == current_user %>
-    <%= render grade %>
-    <p>
-      <%= link_to "Show this grade", grade %>
-    </p>
-  <% end %>
-  <% end %>
+<h1 class="text-start mx-3 reduce-gap">Your grades</h1>
+<div class="text-end mr-1">
+  <%= link_to "New Grade", new_grade_path, class: 'btn btn-primary btn-sm mx-5' %>
+</div>
+<hr>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="text-center">Course code</th>
+      <th class="text-center">Course</th>
+      <th class="text-center">Points</th>
+      <th class="text-center">Grade</th>
+      <th class="text-center"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @grades.each do |grade| %>
+      <% if grade.user == current_user %>
+        <tr>
+          <td class="text-center"><%= grade.code %></td>
+          <td class="text-center"><%= grade.course %></td>
+          <td class="text-center"><%= grade.points %></td>
+          <td class="text-center"><%= grade.grade %></td>
+          <td class="text-center"> <%= link_to 'View', grade, class: 'btn btn-info btn-sm' %> </td>
+          <td class="text-center"> <%= link_to 'Edit', edit_grade_path(grade), class: 'btn btn-success btn-sm' %> </td>
+          <td class="text-center"> <%= button_to 'Delete', grade, method: :delete, class: 'btn btn-danger btn-sm' %> </td>
+        </tr>
+      <% end %>
+    <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New grade", new_grade_path %>
+
+

@@ -26,7 +26,7 @@ class GradesController < ApplicationController
 
     respond_to do |format|
       if @grade.save
-        format.html { redirect_to grade_url(@grade), notice: "Grade was successfully created." }
+        format.html { redirect_to grades_path}
         format.json { render :show, status: :created, location: @grade }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class GradesController < ApplicationController
   def update
     respond_to do |format|
       if @grade.update(grade_params)
-        format.html { redirect_to grade_url(@grade), notice: "Grade was successfully updated." }
+        format.html { redirect_to grades_path}
         format.json { render :show, status: :ok, location: @grade }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class GradesController < ApplicationController
     @grade.destroy
 
     respond_to do |format|
-      format.html { redirect_to grades_url, notice: "Grade was successfully destroyed." }
+      format.html { redirect_to grades_url }
       format.json { head :no_content }
     end
   end
