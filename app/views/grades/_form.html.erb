@@ -11,27 +11,45 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :code, style: "display: block" %>
-    <%= form.text_field :code %>
+  <div class="card">
+    <div class="card-body">
+
+
+      <div class="row mb-1 mt-4 h-100 justify-content-center align-items-center">
+        <div class="col-sm-5">
+          <%= form.text_field :code,placeholder: 'Course code', class: 'form-control' %>
+        </div>
+      </div>
+
+
+
+      <div class="row mb-1 mt-4 h-100 justify-content-center align-items-center">
+        <div class="col-sm-5">
+          <%= form.text_field :course,placeholder: 'Course name', class: 'form-control' %>
+
+        </div>
+      </div>
+
+
+      <div class="row mb-1 mt-4 h-100 justify-content-center align-items-center">
+        <div class="col-sm-5">
+          <%= form.text_field :points,placeholder: 'Course points',class: 'form-control' %>
+
+
+        </div>
+      </div>
+
+      <div class="row mb-1 mt-4 h-100 justify-content-center align-items-center">
+        <div class="col-sm-5">
+          <%= form.text_field :grade,placeholder: 'Course grade',class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <%= form.submit class: 'btn btn-primary mt-3 btn-sm'  %> <br>
+        <%= link_to 'Cancel', grades_path, class: 'btn btn-warning btn-sm mt-3' %>
+      </div>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :course, style: "display: block" %>
-    <%= form.text_field :course %>
-  </div>
-
-  <div>
-    <%= form.label :points, style: "display: block" %>
-    <%= form.text_field :points %>
-  </div>
-
-  <div>
-    <%= form.label :grade, style: "display: block" %>
-    <%= form.text_field :grade %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>

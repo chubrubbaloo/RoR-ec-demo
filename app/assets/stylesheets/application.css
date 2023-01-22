@@ -15,7 +15,13 @@
  */
 
 *{
-    overflow: hidden;
+
+
+}
+
+.horizontal-scrollable{
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .reduce-gap {
