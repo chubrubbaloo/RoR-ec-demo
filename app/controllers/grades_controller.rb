@@ -1,9 +1,17 @@
 class GradesController < ApplicationController
+  before_action :authenticate_user!
+
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
+
   before_action :set_grade, only: %i[ show edit update destroy ]
+
 
   # GET /grades or /grades.json
   def index
     @grades = Grade.all
+
+    @q = Grade.ransack(params[:q])
+    @grades = @q.result(distinct: true)
   end
 
   # GET /grades/1 or /grades/1.json
@@ -56,6 +64,11 @@ class GradesController < ApplicationController
       format.html { redirect_to grades_url }
       format.json { head :no_content }
     end
+  end
+
+  def correct_user
+    @grade = current_user.grades.find_by(id: params[:id])
+    redirect_to grades_path, notice: "Not Authorized To Edit This grade!" if @grade.nil?
   end
 
   private
