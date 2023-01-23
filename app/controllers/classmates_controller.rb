@@ -8,6 +8,9 @@ class ClassmatesController < ApplicationController
   # GET /classmates or /classmates.json
   def index
     @classmates = Classmate.all
+
+    @q = Classmate.ransack(params[:q])
+    @classmates = @q.result(distinct: true)
   end
 
   # GET /classmates/1 or /classmates/1.json

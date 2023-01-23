@@ -1,5 +1,19 @@
 
     <h1 class="text-start mx-3 reduce-gap">Your classmates</h1>
+
+    <%= search_form_for @q do |f| %>
+
+
+      <div class="form-group col-md-3 justify-content-center search-center">
+        <%= f.search_field :first_name_cont, class: 'form-control  mt-3 ', placeholder: 'First name' %>
+      </div>
+
+      <div class="text-center">
+        <%= f.submit class: 'btn btn-outline-primary btn-sm mt-3' %>
+      </div>
+    <% end %>
+
+
 <div class="text-end mr-1">
   <%= link_to "New classmate", new_classmate_path, class: 'btn btn-primary btn-sm mx-5' %>
 </div>
