@@ -1,26 +1,33 @@
-<h2>Change your password</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+  <div class="card">
+    <div class="card-body">
+
+      <div class="col-sm-5 search-center">
+        <% if @minimum_password_length %>
+        <% end %>
+        <%= f.password_field :password, placeholder: 'New password (6 char min)', class:'form-control' ,autofocus: true, autocomplete: "new-password" %>
+      </div>
+
+
+
+      <div class="col-sm-5 search-center mt-3">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Confirm password', class: 'form-control' %>
+      </div>
+
+      <div class="text-center">
+        <%= f.submit "Change my password", class: 'btn btn-primary mt-3' %>
+      </div>
+
+    </div>
   </div>
 
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
 <% end %>
+<div class="text-center">
+  <%= link_to 'Cancel', new_user_session_path, class: 'btn btn-warning' %>
+</div>
 
-<%= render "devise/shared/links" %>
