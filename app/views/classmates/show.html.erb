@@ -1,10 +1,26 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @classmate %>
-
-<div>
-  <%= link_to "Edit this classmate", edit_classmate_path(@classmate) %> |
-  <%= link_to "Back to classmates", classmates_path %>
-
-  <%= button_to "Destroy this classmate", @classmate, method: :delete %>
+<div class="container horizontal-scrollable">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="text-center">Course code</th>
+      <th class="text-center">Course</th>
+      <th class="text-center">Points</th>
+      <th class="text-center">Grade</th>
+      <th class="text-center">Created at</th>
+      <th class="text-center">Updated at</th>
+      <th class="text-center"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td class="text-center"><%= @classmate.first_name %></td>
+      <td class="text-center"><%= @classmate.last_name %></td>
+      <td class="text-center"><%= @classmate.email %></td>
+      <td class="text-center"><%= @classmate.phone %></td>
+      <td class="text-center"><%= @classmate.created_at %></td>
+      <td class="text-center"><%= @classmate.updated_at %></td>
+      <td class="text-center"> <%= link_to 'Go back', classmates_path, class: 'btn btn-warning btn-sm' %> </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
